@@ -169,7 +169,7 @@ public struct ConfigureScanDocumentsViews {
     public var ConfigureDocumentsPreviewPage: ConfigureDocumentsPreviewPage? = nil
 }
 
- ```swift
+  ```
 
  ```swift
 FIRST
