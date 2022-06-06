@@ -380,6 +380,35 @@ extension <YOUR_VIEW_CONTROLLER>: SedraComplyDelegate{
 ```
 ###### END OF SEDRA COMPLY ######
 
+###### Sedra Close Journey ######
+
+
+```swift
+
+//put this code when you need to close your journey.
+@objc func myButtonAction(_ sender: UIButton){
+     SedraCheck.closeJourney.delegate = self
+              
+
+    /// Below function is for closing the journey.
+    /// - Parameters:
+    ///   - customerId: enter the customet id of the user <Required>
+
+  SedraCheck.closeJourney.closeJourneyAPI(customerId: "<CUSTOMER_ID_HERE>" )
+}
+
+extension <YOUR_VIEW_CONTROLLER>: SedraCheckCloseJourneyDelegate{
+    func didFinishCloseJourneyWithSuccess(){
+        //do your code here
+    }
+    
+    func didFinishCloseJourneyWithError(message: SedraCheckError){
+        //do your code here
+    }
+}
+```
+###### END OF SEDRA CLOSE JOURNEY ######
+
 
 Localization
 ==========================
