@@ -134,7 +134,7 @@ If you need to let the user capture the document (id, passport), use below code:
     ///   - documentType: this is an enum (.id, .passport)
     ///   - configuration: of type ConfigureScanDocumentsViews whitch contains 3 objects type will be declared down 
 
-    SedraCheck.documentsCheck.captureDocuments(documentType: .id, configuration: configuration)
+    SedraCheck.documentsCheck.captureDocuments(documentType: .id, configuration: ConfigureScanDocumentsViews)
 }
 
 extension <YOUR_VIEW_CONTROLLER>: SedraCheckDocumentsDelegate{
@@ -160,6 +160,19 @@ extension <YOUR_VIEW_CONTROLLER>: SedraCheckDocumentsDelegate{
 ###### Sedra Configuration ######
 If you need to configure the Documents Pages, use below code:
 ```swift
+
+/// ConfigureScanDocumentsViews whitch contains 3 objects type will be declared down:
+
+public struct ConfigureScanDocumentsViews {
+    public var ConfigureDocumentsCameraPage: ConfigureDocumentsCameraPage? = nil
+    public var ConfigureDocumentsEditPage: ConfigureDocumentsEditPage? = nil
+    public var ConfigureDocumentsPreviewPage: ConfigureDocumentsPreviewPage? = nil
+}
+
+ ```swift
+
+ ```swift
+FIRST
 /// ConfigureDocumentsCameraPage: this is the first object which configure all attributes in the Camera Page, use below code with default values:
 
 public struct ConfigureDocumentsCameraPage {
@@ -224,6 +237,7 @@ public struct ConfigureDocumentsCameraPage {
  ```
  
  ```swift
+SECOND
 /// ConfigureDocumentsEditPage: this is the second object which configure all attributes in the edit Page, use below code with default values:
 
 public struct ConfigureDocumentsEditPage {
@@ -251,6 +265,7 @@ public struct ConfigureDocumentsEditPage {
  ```
  
  ```swift
+ THIRD
 /// ConfigureDocumentsPreviewPage: this is the third object which configure all attributes in the preview Page, use below code with default values:
  
  public struct ConfigureDocumentsPreviewPage {
