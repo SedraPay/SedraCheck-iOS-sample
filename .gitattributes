@@ -1,0 +1,6 @@
+/Users/areejsadaqa/Desktop/SedraCheck-iOS-sample/Pods/GoogleMLKit filter=lfs diff=lfs merge=lfs -text
+Pods/MLKitFaceDetection/Frameworks/MLKitFaceDetection.framework/MLKitFaceDetection filter=lfs diff=lfs merge=lfs -text
+https://github.com/SedraPay/SedraCheck-iOS-sample.git filter=lfs diff=lfs merge=lfs -text
+Pods/SedraCheck/SedraCheck.xcframework.zip filter=lfs diff=lfs merge=lfs -text
+Pods/SedraCheck/SedraCheck.xcframework/ios-arm64/SedraCheck.framework/SedraCheck filter=lfs diff=lfs merge=lfs -text
+8bff7f070d7b86eb4b5d791056ddefbd6e2785ece18669c64c6724609d2eb96e filter=lfs diff=lfs merge=lfs -text
