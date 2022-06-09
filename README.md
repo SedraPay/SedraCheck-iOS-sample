@@ -86,12 +86,13 @@ override func viewDidLoad(){
     SedraCheck.shared.setSettings(serverKey: "<YOUR_SERVER_KEY>", serverURLString: "<YOUR_GIVEN_SERVER>", true, .update) 
 }
 
-func closeJourny(){
-     //assign the delegate to your viewController
-    SedraCheck.shared.delegate = self
-    /// - Parameters:
-    ///  - customerId: this parameter to know your user id so you can compare it from our portal if needed
-    SedraCheck.shared.closeJourney(customerId: "<YOUR_CORE_SYSTEM_USERID>")
+func getNationalities() {
+/// Below function is not required, in case you need to get all the nationalities you can call it using:
+ SedraCheck.shared.delegate = self
+ 
+  SedraCheck.shared.getNationalities()
+
+
 }
 
 extension <YOUR_VIEW_CONTROLLER>: SedraCheckJourneyDelegate{
@@ -100,20 +101,24 @@ extension <YOUR_VIEW_CONTROLLER>: SedraCheckJourneyDelegate{
         //dismiss dialogs, loadings
         //recall the function
     }
-    func didFinishCloseJourneyWithSuccess(){
-
-    }
-    func didFinishCloseJourneyWithError(error: SedraCheckError){
-        //do your own code as:
-        //dismiss dialogs, loadings
-        //recall the function
-    }
-    
     func didFinishCreatingJourneyWithSuccess(journeyId: String) {
         //do your own code as:
         //dismiss dialog, loadings
         //save the journey if needed as a reference to your server to check user from our protal
     }
+    
+    func didGetNationalitiesWithSuccess(response:GetNationalities) {
+       //do your own code as:
+      //dismiss dialog, loadings
+      // save the nationalities Response in your own array if needed : self.nationalitiesResponse = response
+    }
+    
+    func didGetNationalitiesWithError(error: SedraCheckError) {
+          //do your own code as:
+        //dismiss dialogs, loadings
+        //recall the function
+    }
+    
 }
 ```
 ###### END OF CREATE JOURNEY ######
@@ -131,10 +136,16 @@ If you need to let the user capture the document (id, passport), use below code:
 
     /// Below function is for ocr the document and get the information of the user.
     /// - Parameters:
-    ///   - documentType: this is an enum (.id, .passport)
+    
+    ///   - nationality: this is an object of Nationality struct, you can make your own object, or use the result of the getNationalities API you hit 
+            after you create your journey, and choose the nationality you've selected.
+    
+    /// documentType:  this is an object of NationalityIDType struct, you can make your own object, or use the result of the getNationalities API you hit        
+        after you create your journey, and choose the nationality type id you've selected.
+    
     ///   - configuration: of type ConfigureScanDocumentsViews whitch contains 3 objects type will be declared down 
 
-    SedraCheck.documentsCheck.captureDocuments(documentType: .id, configuration: ConfigureScanDocumentsViews)
+    SedraCheck.documentsCheck.captureDocuments(nationality:Nationality, documentType: NationalityIDType, configuration: ConfigureScanDocumentsViews)
 }
 
 extension <YOUR_VIEW_CONTROLLER>: SedraCheckDocumentsDelegate{
@@ -386,13 +397,14 @@ extension <YOUR_VIEW_CONTROLLER>: SedraComplyDelegate{
 ```swift
 
 //put this code when you need to close your journey.
+
 @objc func myButtonAction(_ sender: UIButton){
      SedraCheck.closeJourney.delegate = self
               
 
     /// Below function is for closing the journey.
     /// - Parameters:
-    ///   - customerId: enter the customet id of the user <Required>
+    ///   - customerId: this parameter to know your user id so you can compare it from our portal if needed
 
   SedraCheck.closeJourney.closeJourneyAPI(customerId: "<CUSTOMER_ID_HERE>" )
 }
