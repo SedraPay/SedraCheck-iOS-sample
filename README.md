@@ -107,6 +107,7 @@ extension <YOUR_VIEW_CONTROLLER>: SedraCheckJourneyDelegate{
         //save the journey if needed as a reference to your server to check user from our protal
     }
     
+    ///Optional if you call the getNationalities API
     func didGetNationalitiesWithSuccess(response:GetNationalities) {
        //do your own code as:
       //dismiss dialog, loadings
@@ -137,11 +138,9 @@ If you need to let the user capture the document (id, passport), use below code:
     /// Below function is for ocr the document and get the information of the user.
     /// - Parameters:
     
-    ///   - nationality: this is an object of Nationality struct, you can make your own object, or use the result of the getNationalities API you hit 
-            after you create your journey, and choose the nationality you've selected.
+    ///   - nationality: this is an object of Nationality struct, you can make your own object, or use the result of the getNationalities API you hit after you create your journey, and choose the nationality you've selected.
     
-    /// documentType:  this is an object of NationalityIDType struct, you can make your own object, or use the result of the getNationalities API you hit        
-        after you create your journey, and choose the nationality type id you've selected.
+    /// documentType:  this is an object of NationalityIDType struct, you can make your own object, or use the result of the getNationalities API you hit        after you create your journey, and choose the nationality type id you've selected.
     
     ///   - configuration: of type ConfigureScanDocumentsViews whitch contains 3 objects type will be declared down 
 
