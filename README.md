@@ -139,7 +139,7 @@ If you need to let the user capture the document (id, passport), use below code:
     /// - Parameters:
     
     ///   - nationality: this is an object of Nationality struct, you can make your own object, or use the result of the getNationalities API you hit after you create your journey, and choose the nationality you've selected.
-    ///   - documentType:  this is an object of NationalityIDType struct, you can make your own object, or use the result of the getNationalities API you hit        after you create your journey, and choose the nationality type id you've selected.
+    ///   - documentType:  this is an object of NationalityIDType struct, you can make your own object, or use the result of the getNationalities API you hit after you create your journey, and choose the nationality type id you've selected.
     ///   - configuration: of type ConfigureScanDocumentsViews whitch contains 3 objects type will be declared down 
 
     SedraCheck.documentsCheck.captureDocuments(nationality:Nationality, documentType: NationalityIDType, configuration: ConfigureScanDocumentsViews)
